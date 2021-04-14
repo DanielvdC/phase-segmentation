@@ -17,3 +17,10 @@ With these scripts, you can generate predictions for the surgical phase timestam
 6. Choose your post-processing method (either general or specific)
 
 Output will be a plot.
+
+# Author
+Daniël van den Corput
+<br> danielvdcorput@gmail.com
+
+# Purpose
+This project was created for Incision, see https://www.incision.care/
