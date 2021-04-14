@@ -485,7 +485,7 @@ print(clusters)
 fo_3 = clusters[9][1]
 lo_3 = clusters[9][-1]
 
-fo_3 = df[df['Instrument'] == 'Clipper'].loc[clusters[9][1]['Frame ID']
+fo_3 = df[df['Instrument'] == 'Clipper'].loc[clusters[9][1]['Frame ID']]
 print(fo_3)
 
 
