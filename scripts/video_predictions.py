@@ -12,6 +12,17 @@ import cv2
 import os
 import time
 
+###############################################################################
+############################# VIDEO PREDICTIONS ###############################
+###############################################################################
+
+# This script is used to generate the predictions for the videos. Make sure to
+# add your videos to the ./Data/videos/testset/ directory and to add your ground
+# truth labels to the ./Data/data_annotation/ directory. The script can also be
+# alterated so that the ground truth labels are not necessary.
+# Generates a .csv file that is used for the post processing in the other files.
+
+###############################################################################
 
 def get_parent_dir(n=1):
     current_path = os.path.dirname(os.path.abspath(__file__))
@@ -22,15 +33,14 @@ def get_parent_dir(n=1):
 # locate model
 model_path = os.path.join(get_parent_dir(1),'Output', 'models')
 # load model
-models = ['resnet50v2_0.01.model','alexnet_0.01.model','efficientnetb3_0.01.model',
-          'efficientnetb3_0.05.model','efficientnetb3_0.25.model']
-model_idx = 4
+models = ['efficientnetb3_0.01.model','efficientnetb3_0.05.model','efficientnetb3_0.25.model']
+model_idx = 0
 model = keras.models.load_model(os.path.join(model_path, models[model_idx]))
 
 # locate test path
 test_path = os.path.join(get_parent_dir(1),'Data','videos','testset')
 # load test video
-videos = ['20180926I09.MP4','20180928I10.MP4','20181015I31.MP4']
+videos = [#YOUR VIDEOS HERE]
 vid_idx = 0
 video = (os.path.join(test_path, videos[vid_idx]))
 # locate gt labels
@@ -80,9 +90,3 @@ while cap.isOpened():
         print(currentframe)
     
 output.to_csv(output_file,header=True,index=False)
-
-
-
-
-
-
