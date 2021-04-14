@@ -20,6 +20,18 @@ import random
 import os
 plt.use('Agg')
 
+###############################################################################
+############################# TRAIN EFFICIENTNETB3 ############################
+###############################################################################
+
+# This script needs a directory of frames extracted from laparoscopic cholecys-
+# tectomy procedures stored in the ./Data/images/full dataset/ directory. Make
+# sure that these images are stored in their corresponding folder.
+# The pre-trained models can be found in the ./Output/models/ folder. If you
+# use those models, this script is not necessary.
+
+###############################################################################
+
 def get_parent_dir(n=1):
     current_path = os.path.dirname(os.path.abspath(__file__))
     for k in range(n):
@@ -213,4 +225,3 @@ print(classification_report(testGen.classes, predIdxs,
 # serialize the model to disk
 print("[INFO] saving model...")
 model.save(MODEL_PATH, save_format="h5")
-
