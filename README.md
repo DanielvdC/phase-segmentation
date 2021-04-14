@@ -12,7 +12,7 @@ With these scripts, you can generate predictions for the surgical phase timestam
 2. Install necessary packages with:
 <br> pip install -r requirements.txt
 3. Either retrain with your own images with the ./scripts/efficientnetb3.py script
-4. Or add your videos to the ./Data/videos/ folder
+4. Or add your videos to the ./Data/videos/testset folder
 5. Run the ./scripts/video_predictions.py script
 6. Choose your post-processing method (either general or specific)
 
