@@ -14,6 +14,25 @@ import numpy as np
 import cv2
 import os
 
+###############################################################################
+########################### GENERAL POSTPROCESSING ############################
+###############################################################################
+
+# This script is used for the general post processing of the predictions made by
+# the ./scripts/video_predictions.py script. It uses a set list of rules which
+# it applies to enhance the made predictions. It can be expected that this method
+# does not produce better results than the specific approach, but it does its
+# processing completely automatic. Make sure to include your videos in the videos
+# variable below.
+# As of now, the script also operates with the ground truth values of the videos,
+# in order to compare the predictions with the actual labels. The script can be
+# modified to exclude these ground truths as well.
+# If using the ground truth values, make sure that it is a .csv file with the
+# timestamps of all the phases in the format MM:SS. If there are multiple times
+# for one phase, separate them with a ; like so: MM:SS; MM:SS.
+
+###############################################################################
+
 def get_parent_dir(n=1):
     current_path = os.path.dirname(os.path.abspath(__file__))
     for k in range(n):
@@ -50,9 +69,7 @@ def find_clusters(frames):
 # define which video to assess
 test_videos = os.path.join(get_parent_dir(1),'Data','videos','testset')
 # load test video
-videos = ['20180926I09.MP4','20180928I10.MP4','20181015I31.MP4',
-          'ch1_video_001aa.mpg','ch1_video_001.mpg','ch1_video_05.mpg',
-          '20180928I11_1.MP4']
+videos = [#YOUR VIDEOS HERE]
 vid_idx = 5
 video = (os.path.join(test_videos, videos[vid_idx]))
 print('[INFO] Currently processing video [{}] -- lazy approach'.format(videos[vid_idx]))
@@ -62,9 +79,8 @@ cap = cv2.VideoCapture(video)
 fps = cap.get(5)
 
 # select model
-models = ['resnet50v2_0.01.model','alexnet_0.01.model','efficientnetb3_0.01.model',
-          'efficientnetb3_0.05.model','efficientnetb3_0.25.model']
-model_idx = 4
+models = ['efficientnetb3_0.01.model','efficientnetb3_0.05.model','efficientnetb3_0.25.model']
+model_idx = 0
 # locate predictions
 predictions = os.path.join(get_parent_dir(1),'Output','predictions',
                            '{}_{}.csv'.format(
