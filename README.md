@@ -1,7 +1,7 @@
 # Phase-segmentation
-Project to define surgical phases for the laparoscopic cholecystectomy procedure.
+Project to define surgical phases for the laparoscopic cholecystectomy (lap chol) procedure.
 
-This project includes a pre-trained model, which is the EfficientNetB3 and trained on about 24.000 images. The trained models can be found in ./Output/models/ and includes three variations, based on the amount of frames consideren during training.
+This project describes the use of the pre-trained EfficientNetB3 model to apply transfer learning on about 24.000 images derived from the lap chol procedure. The trained models can be found in ./Output/models/ and includes three variations, based on the amount of frames considered during training.
 To retrain the model with your own dataset, use the ./scripts/efficientnetb3.py file.
 
 After predictions are made, you can choose a general or specific optimisation method. The general method (.scripts/post_processing_general.py) uses set rules to enhance performance. These methods are defined by a trail-and-error approach and do not need any further alterations.
